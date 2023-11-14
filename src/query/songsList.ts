@@ -7,6 +7,7 @@ export const songsList:DocumentNode = gql`
                 attributes{
                     title
                     lyrics
+                    slug
                 }
             }
         }

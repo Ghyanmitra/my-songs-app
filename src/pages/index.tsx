@@ -3,10 +3,10 @@ import { songsList } from "@/query/songsList"
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import { ApolloClient } from '@apollo/client'
 import parse from "html-react-parser"
+import Link from "next/link"
 
 
 export default function Home({ data }: { data: any }) {
-  console.log(data);
 
   return (
     <MaxWidthWrapper>
@@ -18,17 +18,19 @@ export default function Home({ data }: { data: any }) {
             data?.songLists?.data?.map((value: {
               attributes: {
                 title: string
+                slug: string
               }
             }, key: number) => {
 
-              return <li key={key + 1} className="flex justify-between gap-x-6 py-3">
-                <div className="flex gap-x-4">
-                  <div className="flex-auto">
-                    <p className="text-lg font-semibold leading-6 ">{value?.attributes?.title}</p>
-                    {/* <p className="mt-1 truncate text-md leading-5 ">{value?.attributes?.lyrics && parse(value?.attributes?.lyrics)}</p> */}
+              return <li key={key + 1} className="flex justify-between gap-x-6 py-3 cursor-pointer">
+                <Link href={value?.attributes?.slug}>
+                  <div className="flex gap-x-4">
+                    <div className="flex-auto">
+                      <p className="text-lg font-semibold leading-6 ">{value?.attributes?.title}</p>
+                      {/* <p className="mt-1 truncate text-md leading-5 ">{value?.attributes?.lyrics && parse(value?.attributes?.lyrics)}</p> */}
+                    </div>
                   </div>
-                </div>
-
+                </Link>
               </li>
             })
           }

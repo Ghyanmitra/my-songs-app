@@ -3,10 +3,10 @@ import React from 'react'
 import createApoloClient from "@/lib/apollo-client"
 import { songsCategory } from "@/query/songsCategory"
 import { ApolloClient } from '@apollo/client'
+import Link from 'next/link'
 
 
 function SongsPage({ data }: { data: any }) {
-    console.log(data);
 
     return (
         <MaxWidthWrapper>
@@ -19,13 +19,17 @@ function SongsPage({ data }: { data: any }) {
                 {data?.songCategories?.data?.map((value: {
                     attributes: {
                         title: string
+                        slug: string
                     }
                 }, key: number) => {
 
-                    return <div className='rounded-xl border bg-card text-card-foreground shadow p-4 flex justify-center' key={key + 1}> {value?.attributes?.title}  </div>
+                    return <div className='rounded-xl border bg-card text-card-foreground shadow p-4 flex justify-center' key={key + 1}>
+                        <Link href={`songs/${value?.attributes?.slug}`}>
+                            {value?.attributes?.title}
+                        </Link>
+                    </div>
                 })}
             </div>
-
 
         </MaxWidthWrapper>
     )

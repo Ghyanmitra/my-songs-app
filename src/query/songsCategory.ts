@@ -7,6 +7,7 @@ export const songsCategory:DocumentNode = gql`
         id
         attributes {
           title
+          slug
         }
       }
     }
