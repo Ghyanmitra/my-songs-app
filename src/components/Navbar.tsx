@@ -6,9 +6,9 @@ import { ThemeToggle } from './ThemeToggle'
 const Navbar = () => {
 
     return (
-        <nav className='sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-foreground bg-background backdrop-blur-lg transition-all'>
+        <nav className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all'>
             <MaxWidthWrapper>
-                <div className='flex h-14 items-center justify-between border-b border-foreground'>
+                <div className='flex h-14 items-center justify-between'>
                     <Link
                         href='/'
                         className='flex z-40 font-bold py-2'>

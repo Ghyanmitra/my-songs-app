@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <MaxWidthWrapper>
 
-      <div>Home page</div>
+      <div className='h-screen'>Home page</div>
 
     </MaxWidthWrapper>
   )
