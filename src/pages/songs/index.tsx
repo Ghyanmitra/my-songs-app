@@ -39,7 +39,7 @@ export default SongsPage
 
 export async function getStaticProps() {
 
-    const client: ApolloClient<any> = await createApoloClient();
+    const client: ApolloClient<any> = createApoloClient();
 
     const { data } = await client.query({ query: songsCategory });
 

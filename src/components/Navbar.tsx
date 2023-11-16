@@ -11,7 +11,7 @@ const Navbar = () => {
                 <div className='flex h-14 items-center justify-between'>
                     <Link
                         href='/'
-                        className='flex z-40 font-bold py-2'>
+                        className='flex z-40 font-bold py-2 text-primary'>
                         <span>Christian Songs</span>
                     </Link>
 

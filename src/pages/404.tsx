@@ -8,7 +8,7 @@ function PageNotFound() {
                 <h1 className='text-4xl md:text-9xl font-bold text-primary'>
                     404
                 </h1>
-                <h2 className='text-2xl md:text-6xl font-medium py-8 text-primary'>oops! Page not found
+                <h2 className='text-2xl md:text-6xl font-medium py-8 text-primary'>Oops! Page not found
                 </h2>
             </div>
         </MaxWidthWrapper>

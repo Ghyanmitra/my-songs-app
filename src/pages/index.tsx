@@ -1,19 +1,25 @@
 import createApoloClient from "@/lib/apollo-client"
-import { songsList } from "@/query/songsList"
+import { songsList as query } from "@/query/songsList"
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import { ApolloClient } from '@apollo/client'
 import parse from "html-react-parser"
 import Link from "next/link"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
 
 export default function Home({ data }: { data: any }) {
 
   return (
-    <MaxWidthWrapper>
+    <MaxWidthWrapper className="py-6 sm:py-8">
+
+      <div className="flex w-full max-w-lg items-center space-x-2 justify-center mx-auto pb-6">
+        <Input type="text" placeholder="Search songs" />
+        <Button type="submit">Search</Button>
+      </div>
 
       <div>
         <ul role="list" className="divide-y divide-gray-100">
-
           {
             data?.songLists?.data?.map((value: {
               attributes: {
@@ -44,9 +50,9 @@ export default function Home({ data }: { data: any }) {
 
 export async function getStaticProps() {
 
-  const client: ApolloClient<any> = await createApoloClient();
+  const client: ApolloClient<any> = createApoloClient();
 
-  const { data } = await client.query({ query: songsList });
+  const { data } = await client.query({ query });
 
   return {
     props: {

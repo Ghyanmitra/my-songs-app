@@ -13,3 +13,26 @@ export const songsList:DocumentNode = gql`
         }
     }
 `;
+
+// # Write your query or mutation here
+// query {
+//   songLists(
+//     pagination: { page: 4, pageSize: 2 }
+//     filters: { title: { containsi: "" } }
+//   ) {
+//     data {
+//       attributes {
+//         title
+//       }
+//     }
+//     meta {
+//       pagination {
+//         page
+//         total
+//         pageSize
+//         pageCount
+//       }
+//     }
+//   }
+// }
+
