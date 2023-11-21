@@ -1,18 +1,43 @@
 import { DocumentNode, gql } from "@apollo/client";
 
-export const songsList:DocumentNode = gql`
-    query{
-        songLists{
+export const songsList =(pageNo:Number,
+    pageSize:Number, titleString:string)=>{
+
+   return gql`
+    # Write your query or mutation here
+    query songs{
+      songLists(
+        pagination: { page: ${pageNo}, pageSize: ${pageSize} }
+        filters: { title: { containsi:"${titleString}" } }
+        sort:["title:asc"]
+      ) {
+        data {
+          attributes {
+            title
+            slug
+            lyrics
+            song_category{
             data{
                 attributes{
-                    title
-                    lyrics
-                    slug
+                        title
+                        slug
+                    }
                 }
             }
+          }
         }
+        meta {
+          pagination {
+            page
+            total
+            pageSize
+            pageCount
+          }
+        }
+      }
     }
-`;
+    `
+};
 
 // # Write your query or mutation here
 // query {
